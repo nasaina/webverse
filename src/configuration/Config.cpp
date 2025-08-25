@@ -6,7 +6,7 @@
 /*   By: nandrian <nandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 08:25:52 by nandrian          #+#    #+#             */
-/*   Updated: 2025/08/25 08:42:55 by nandrian         ###   ########.fr       */
+/*   Updated: 2025/08/25 08:52:05 by nandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,18 @@ Config::Config(char **av)
 		configServer	srv(it);
 		_server.push_back(srv);
 	}
+}
+
+std::ostream	&operator<<(std::ostream &o, const Config &other)
+{
+	std::vector<configServer>	server = other.getServer();
+	for (std::vector<configServer>::iterator it = server.begin(); it != server.end(); it++)
+	{
+		std::cout << "****************" << std::endl;
+		std::cout << *it;
+		std::cout << "****************" << std::endl;
+	}
+	return (o);
 }
 
 Config::~Config()
