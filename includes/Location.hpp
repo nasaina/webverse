@@ -6,16 +6,14 @@
 /*   By: nandrian <nandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 15:56:39 by nandrian          #+#    #+#             */
-/*   Updated: 2025/08/22 17:37:46 by nandrian         ###   ########.fr       */
+/*   Updated: 2025/08/25 08:35:48 by nandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LOCATION_HPP
 # define LOCATION_HPP
 
-# include "includes.hpp"
-typedef std::map<std::string, std::string>	mapString;
-typedef	std::vector<std::string>			vectorString;
+# include <includes.hpp>
 
 std::string	Word(std::string &word, int index);
 

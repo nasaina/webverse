@@ -6,9 +6,9 @@ CC = c++
 
 OBJ_DIR = objs
 
-INCLUDES = -I ../includes/
+INCLUDES = -I includes/
 
-SRC = configServer.cpp Location.cpp main.cpp
+SRC = $(addprefix src/configuration/, configServer.cpp Location.cpp Config.cpp word.cpp server.cpp main.cpp)
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 

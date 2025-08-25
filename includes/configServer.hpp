@@ -6,12 +6,12 @@
 /*   By: nandrian <nandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 13:34:02 by nandrian          #+#    #+#             */
-/*   Updated: 2025/08/22 17:58:03 by nandrian         ###   ########.fr       */
+/*   Updated: 2025/08/25 08:37:46 by nandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONFIG_HPP
-# define CONFIG_HPP
+#ifndef CONFIGSERVER_HPP
+# define CONFIGSERVER_HPP
 
 # include <includes.hpp>
 #include <Location.hpp>
@@ -25,7 +25,7 @@ class configServer
 		mapString					_uploadPath;
 		mapString					_cgi;
 		std::vector<Location>		_location;
-		public:
+	public:
 		configServer(std::vector<vectorString>::iterator it);
 		void					getElement(std::vector<vectorString>::iterator it);
 		std::string				getPort(void) const;
@@ -39,7 +39,5 @@ class configServer
 };
 
 std::ostream	&operator<<(std::ostream &o, const configServer &other);
-
-std::string	trimSpace(std::string tmp);
 
 #endif
