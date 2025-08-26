@@ -6,7 +6,7 @@
 /*   By: nandrian <nandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 10:21:02 by nandrian          #+#    #+#             */
-/*   Updated: 2025/08/26 11:48:52 by nandrian         ###   ########.fr       */
+/*   Updated: 2025/08/26 13:04:18 by nandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ void	checkConf(std::string filename)
 	{
 		if (it->find('{', 0) != std::string::npos)
 		{
+			// std::cout << Word(*it, 1) << std::endl;
 			if (Word(*it, 0) != "server" && Word(*it, 0) != "cgi"
-				&& Word(*it, 0) != "location" && (Word(*it, 1) != "}" || Word(*it, 2) != "}"))
+				&& Word(*it, 0) != "location")
+				throw std::runtime_error("Error: configuration file");
+			if ((Word(*it, 0) == "server" || Word(*it, 0) == "cgi") && (Word(*it, 1) != "{"))
 				throw std::runtime_error("Error: configuration file");
 		}
 		if (it->find('}', 0) != std::string::npos && Word(*it, 0) != "}")
