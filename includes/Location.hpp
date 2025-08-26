@@ -6,7 +6,7 @@
 /*   By: nandrian <nandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 15:56:39 by nandrian          #+#    #+#             */
-/*   Updated: 2025/08/25 08:50:28 by nandrian         ###   ########.fr       */
+/*   Updated: 2025/08/26 07:59:25 by nandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define LOCATION_HPP
 
 # include <includes.hpp>
-
-std::string	Word(std::string &word, int index);
 
 class Location
 {
@@ -25,6 +23,7 @@ class Location
 		std::string	methods(std::string tmp);
 	public:
 		Location(vectorString::iterator *it);
+		Location();
 		std::string	getRoot(void) const;
 		mapString	getContent(void) const;
 		void		printMap(std::ostream &os) const;

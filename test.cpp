@@ -6,7 +6,7 @@
 /*   By: nandrian <nandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 11:21:11 by nandrian          #+#    #+#             */
-/*   Updated: 2025/08/19 13:18:41 by nandrian         ###   ########.fr       */
+/*   Updated: 2025/08/25 08:55:32 by nandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,6 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <unistd.h>
-
-// void	clientSocket(void)
-// {
-// 	sockaddr_in	serverAddress;
-// 	int			clientSocket;
-
-// 	clientSocket = socket(AF_INET, SOCK_STREAM, 0);
-// 	serverAddress.sin_family = AF_INET;
-// 	serverAddress.sin_port = htons(8080);
-// 	serverAddress.sin_addr.s_addr = INADDR_ANY;
-// 	connect(clientSocket, (sockaddr *)&serverAddress, sizeof(serverAddress));
-// 	send(clientSocket, "test from nowhere", 18, 0);
-// 	close(clientSocket);
-// }
 
 void	receiveClient(int clientSocket)
 {

@@ -6,7 +6,7 @@
 /*   By: nandrian <nandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 16:31:09 by nandrian          #+#    #+#             */
-/*   Updated: 2025/08/25 08:42:45 by nandrian         ###   ########.fr       */
+/*   Updated: 2025/08/26 08:04:42 by nandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,20 @@ void	configServer::getElement(std::vector<vectorString>::iterator it)
 			_location.push_back(tmp);
 		}
 	}
+	Location none;
+	_location.push_back(none);
+}
+
+Location	configServer::getLocation(std::string input) const
+{
+	std::vector<Location>::const_iterator it = _location.begin();
+	while (it->getRoot() != "404")
+	{
+		if (it->getRoot() == input)
+			return (*it);
+		it++;
+	}
+	return (*it);
 }
 
 configServer::configServer(std::vector<vectorString>::iterator it)

@@ -6,7 +6,7 @@
 /*   By: nandrian <nandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 08:17:43 by nandrian          #+#    #+#             */
-/*   Updated: 2025/08/25 08:52:13 by nandrian         ###   ########.fr       */
+/*   Updated: 2025/08/26 05:58:28 by nandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@
 # include <includes.hpp>
 # include <configServer.hpp>
 
+typedef std::vector<configServer>			vectorServer;
+
 class Config
 {
 	private:
-		std::vector<configServer>	_server;
+		vectorServer	_server;
 	public:
 		Config(char **av);
-		std::vector<configServer>	getServer(void) const;
+		vectorServer	getServer(void) const;
+		configServer	checkPort(std::string input);
 		~Config();
 };
 

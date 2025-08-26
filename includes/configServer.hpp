@@ -6,7 +6,7 @@
 /*   By: nandrian <nandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 13:34:02 by nandrian          #+#    #+#             */
-/*   Updated: 2025/08/25 08:50:13 by nandrian         ###   ########.fr       */
+/*   Updated: 2025/08/26 07:58:11 by nandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class configServer
 		mapString				getPath(void) const;
 		mapString				getCgi(void) const;
 		std::vector<Location>	getLocation(void) const;
+		Location				getLocation(std::string input) const;
 		void					printMap(std::ostream &os) const;
 		void					printLocation(std::ostream &os) const;
 		~configServer();

@@ -6,13 +6,13 @@
 /*   By: nandrian <nandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 08:25:52 by nandrian          #+#    #+#             */
-/*   Updated: 2025/08/25 08:52:05 by nandrian         ###   ########.fr       */
+/*   Updated: 2025/08/26 07:00:50 by nandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Config.hpp>
 
-std::vector<configServer>	Config::getServer(void) const
+vectorServer	Config::getServer(void) const
 {
 	return (_server);
 }
@@ -29,10 +29,21 @@ Config::Config(char **av)
 	}
 }
 
+configServer	Config::checkPort(std::string input)
+{
+	for (vectorServer::iterator it = _server.begin(); it != _server.end(); it++)
+	{
+		if (it->getPort() == input)
+			return (*it);
+	}
+	throw std::runtime_error("Unable to connect to the port specified");
+	return (*(_server.begin()));
+}
+
 std::ostream	&operator<<(std::ostream &o, const Config &other)
 {
-	std::vector<configServer>	server = other.getServer();
-	for (std::vector<configServer>::iterator it = server.begin(); it != server.end(); it++)
+	vectorServer	server = other.getServer();
+	for (vectorServer::iterator it = server.begin(); it != server.end(); it++)
 	{
 		std::cout << "****************" << std::endl;
 		std::cout << *it;

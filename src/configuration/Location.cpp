@@ -6,7 +6,7 @@
 /*   By: nandrian <nandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 17:28:32 by nandrian          #+#    #+#             */
-/*   Updated: 2025/08/25 08:35:57 by nandrian         ###   ########.fr       */
+/*   Updated: 2025/08/26 08:02:44 by nandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ void	Location::printMap(std::ostream &os) const
 	os << std::endl;
 }
 
+Location::Location()
+{
+	_root = "404";
+	_content.insert(std::make_pair("index", "404.html"));
+}
 
 std::ostream	&operator<<(std::ostream &o, const Location &other)
 {
