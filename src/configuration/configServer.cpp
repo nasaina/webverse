@@ -6,7 +6,7 @@
 /*   By: nandrian <nandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 16:31:09 by nandrian          #+#    #+#             */
-/*   Updated: 2025/08/26 08:04:42 by nandrian         ###   ########.fr       */
+/*   Updated: 2025/08/26 11:37:58 by nandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ void	configServer::getElement(std::vector<vectorString>::iterator it)
 {
 	for (vectorString::iterator strIt = (*it).begin(); strIt != (*it).end(); strIt++)
 	{
-		std::string	second = Word(*strIt, 1);
-		if (Word(*strIt, 0) == "listen")
+		std::string	second = Word((std::string)*strIt, 1);
+		if (Word((std::string)*strIt, 0) == "listen")
 			_port = second;
-		else if (Word(*strIt, 0) == "body_limit")
+		else if (Word((std::string)*strIt, 0) == "body_limit")
 			_bodyLimit = std::atoi(second.c_str());
-		else if (Word(*strIt, 0) == "upload_path")
-			_uploadPath.insert(std::make_pair(second, Word(*strIt, 2)));
-		else if (Word(*strIt, 0) == "cgi" && Word(*strIt, 1) == "{")
+		else if (Word((std::string)*strIt, 0) == "upload_path")
+			_uploadPath.insert(std::make_pair(second, Word((std::string)*strIt, 2)));
+		else if (Word((std::string)*strIt, 0) == "cgi" && Word((std::string)*strIt, 1) == "{")
 			_cgi = checkCgi(&strIt);
-		else if (Word(*strIt, 0) == "location" && Word(*strIt, 2) == "{")
+		else if (Word((std::string)*strIt, 0) == "location" && Word((std::string)*strIt, 2) == "{")
 		{
 			Location tmp(&strIt);
 			_location.push_back(tmp);

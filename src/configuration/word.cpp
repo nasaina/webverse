@@ -6,7 +6,7 @@
 /*   By: nandrian <nandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 08:36:30 by nandrian          #+#    #+#             */
-/*   Updated: 2025/08/26 11:17:49 by nandrian         ###   ########.fr       */
+/*   Updated: 2025/08/26 11:38:15 by nandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ bool	checkBrace(std::string tmp)
 	return (1);
 }
 
-std::string	Word(std::string &word, int index)
+std::string	Word(std::string word, int index)
 {
 	std::istringstream	iss(word);
 	std::string			first = "";
@@ -70,9 +70,9 @@ mapString	checkCgi(vectorString::iterator *it)
 	mapString	tmp;
 
 	*it += 1;
-	while (Word(*(*it), 0) != "}")
+	while (Word((std::string)*(*it), 0) != "}")
 	{
-		tmp.insert(std::make_pair(Word(*(*it), 0), Word(*(*it), 1)));
+		tmp.insert(std::make_pair(Word((std::string)*(*it), 0), Word((std::string)*(*it), 1)));
 		*it += 1;
 	}
 	return (tmp);
