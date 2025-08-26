@@ -6,7 +6,7 @@
 /*   By: nandrian <nandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 08:40:35 by nandrian          #+#    #+#             */
-/*   Updated: 2025/08/25 08:42:31 by nandrian         ###   ########.fr       */
+/*   Updated: 2025/08/26 10:26:29 by nandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ std::vector<vectorString>	getServer(vectorString &tmp)
 	for (size_t i = 0; i < count; i++)
 	{
 		str = "";
-		vectorString			out;
+		vectorString	out;
 		while (it != tmp.end())
 		{
 			if (eraseSpace(*it).length() == 0)

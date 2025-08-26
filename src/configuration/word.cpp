@@ -6,7 +6,7 @@
 /*   By: nandrian <nandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 08:36:30 by nandrian          #+#    #+#             */
-/*   Updated: 2025/08/25 08:43:04 by nandrian         ###   ########.fr       */
+/*   Updated: 2025/08/26 11:17:49 by nandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ bool	checkBrace(std::string tmp)
 std::string	Word(std::string &word, int index)
 {
 	std::istringstream	iss(word);
-	std::string			first;
-	std::string			second;
-	std::string			third;
+	std::string			first = "";
+	std::string			second = "";
+	std::string			third = "";
 
 	iss >> first;
 	iss >> second;
@@ -93,16 +93,9 @@ std::vector<vectorString>	getArg(char *av)
 	while (std::getline(fs, line))
 	{
 		tmp.append(line);
-		if (line[line.length() - 1] == '{')
-		{
-			if (trimSpace(line) != "server" && trimSpace(line) != "location" && trimSpace(line) != "cgi")
-				throw std::runtime_error("Error: config should start with \"server {\"");
-		}
 		cTmp.push_back(line);
 		tmp.append("\n");
 	}
-	if (!checkBrace(tmp))
-		throw std::runtime_error("Error: config should start with \"server {\"");
 	config = getServer(cTmp);
 	fs.close();
 	return (config);
