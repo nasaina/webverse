@@ -6,7 +6,7 @@
 /*   By: nandrian <nandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 17:36:04 by nandrian          #+#    #+#             */
-/*   Updated: 2025/08/26 11:41:01 by nandrian         ###   ########.fr       */
+/*   Updated: 2025/08/27 08:15:03 by nandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int main(int ac, char **av)
 			mapString::iterator search = example.find("exec_cg");
 			std::cout << search->first << " " << search->second << std::endl;
 			Location	none = tmp.getLocation(root);
-			// std::cout << "##############" << none << "##############\n";
+			std::cout << "testtests\n";
+			std::cout << "##############" << none << "##############\n";
 		}
 		catch(const std::exception& e)
 		{
