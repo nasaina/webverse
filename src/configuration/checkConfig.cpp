@@ -6,7 +6,7 @@
 /*   By: nandrian <nandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 10:21:02 by nandrian          #+#    #+#             */
-/*   Updated: 2025/08/27 08:59:29 by nandrian         ###   ########.fr       */
+/*   Updated: 2025/08/27 09:01:24 by nandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,17 @@ void	validKey(std::string key)
 	throw std::runtime_error("Error: configuration file");
 }
 
+void	checkFirst(std::string key)
+{
+	if (Word(key, 0) != "server" && Word(key, 0) != "cgi"
+		&& Word(key, 0) != "location")
+		throw std::runtime_error("Error: configuration file");
+	if ((Word(key, 0) == "server" || Word(key, 0) == "cgi") && (Word(key, 1) != "{"))
+		throw std::runtime_error("Error: configuration file");
+	if ((Word(key, 0) == "location") && (Word(key, 2) != "{"))
+		throw std::runtime_error("Error: configuration file");
+}
+
 void	checkConf(std::string filename)
 {
 	vectorString tmp = configurations(filename);
@@ -65,15 +76,7 @@ void	checkConf(std::string filename)
 		if (Word(*it, 0).size())
 			validKey(Word(*it, 0));
 		if (it->find('{', 0) != std::string::npos)
-		{
-			if (Word(*it, 0) != "server" && Word(*it, 0) != "cgi"
-				&& Word(*it, 0) != "location")
-				throw std::runtime_error("Error: configuration file");
-			if ((Word(*it, 0) == "server" || Word(*it, 0) == "cgi") && (Word(*it, 1) != "{"))
-				throw std::runtime_error("Error: configuration file");
-			if ((Word(*it, 0) == "location") && (Word(*it, 2) != "{"))
-				throw std::runtime_error("Error: configuration file");
-		}
+			checkFirst(*it);
 		if (it->find('}', 0) != std::string::npos && Word(*it, 0) != "}")
 		{
 			std::cout << Word(*it, 0).c_str() << std::endl;
